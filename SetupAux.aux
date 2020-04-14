@@ -1,0 +1,37 @@
+SCRIPT
+{
+OpenCase("COULEE24_PlayIn_RealPMU.PWB",PWB);
+EnterMode(EDIT);
+}
+
+DATA (Branch, [BusNum,BusName,BusNum:1,BusName:1,LineCircuit,LineR,LineX,LineC])
+{
+40287 "COULEE" 41744 "COULEE24" 1 1e-05 0.00023 0.02096
+}
+
+DATA (Branch, [BusNum,BusName,BusNum:1,BusName:1,LineCircuit,LineR,LineX])
+{
+41744 "COULEE24" 40298 "COULEE24" 1 0 0.029731825145
+}
+
+DATA (GEN, [BusNum,BusName,GenID,VoltSet])
+{
+40287 "COULEE" 1 1.08633068342
+}
+
+DATA (Bus, [BusNum,BusName,BusPUVolt,BusAngle])
+{
+40287 "COULEE" 1.08633068342 0
+}
+
+DATA (GEN, [BusNum,BusName,GenID,VoltSet,GenMW])
+{
+40298 "COULEE24" 1 0.986660890656 641.712914387
+}
+
+SCRIPT
+{
+EnterMode(RUN);
+SolvePowerFlow (RECTNEWT,"","");
+}
+
